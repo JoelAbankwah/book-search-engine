@@ -1,6 +1,5 @@
 {
   "name": "googlebooks-app",
-  "homepage": "https://dashboard.heroku.com/apps/desolate-brushlands-39443",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -13,6 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://dashboard.heroku.com/apps/desolate-brushlands-39443",
   "devDependencies": {
     "concurrently": "^5.1.0"
   }

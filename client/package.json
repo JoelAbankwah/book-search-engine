@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "homepage": "https://dashboard.heroku.com/apps/desolate-brushlands-39443",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -15,7 +14,7 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
