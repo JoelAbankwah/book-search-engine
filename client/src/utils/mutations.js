@@ -9,6 +9,7 @@ export const ADD_USER = gql `
                 email
                 username
             }
+            token
         }
     }
 `;
