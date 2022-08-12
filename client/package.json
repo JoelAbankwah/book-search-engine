@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "homepage": "https://dashboard.heroku.com/apps/desolate-brushlands-39443",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",

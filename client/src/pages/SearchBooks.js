@@ -3,7 +3,6 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
-import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 import { searchGoogleBooks } from '../utils/API';
@@ -43,7 +42,6 @@ const SearchBooks = () => {
       }
 
       const { items } = await response.json();
-      console.log(items)
 
       const bookData = items.map((book) => ({
         bookId: book.id,
@@ -72,29 +70,30 @@ const SearchBooks = () => {
     if (!token) {
       return false;
     }
+
+    // if user data is loaded
     if(!loading) {
+      // if the current bookId matches any of our saved bookIds throw a message and end the function
       user.savedBooks.map(book => {
         if(book.bookId === bookId) {
-          console.log('Already part of you saved books');
-          return false;
+          throw 'Already part of your saved books!';
         }
       });
-    } 
-
-
-    try {
-      const { data } = await saveBook({
-        variables: { input: bookToSave }
-      });
-      if (!data.saveBook) {
-        throw new Error(error);
-      }
-
-      // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-    } catch (err) {
-      console.error(err);
     }
+      try {
+        const { data } = await saveBook({
+          variables: { input: bookToSave }
+        });
+        
+        if (!data.saveBook) {
+          throw new Error(error);
+        }
+  
+        // if book successfully saves to user's account, save book id to state
+        setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+      } catch (err) {
+        console.error(err);
+      }
   };
 
   return (
